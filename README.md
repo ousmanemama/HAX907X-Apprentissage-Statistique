@@ -5,7 +5,9 @@ Objectif du projet
 L’objectif est de :
 
 •	se familiariser avec le problème du filtrage collaboratif,
+
 •	en comprendre la formalisation statistique,
+
 •	et expérimenter plusieurs approches classiques.
 
 
