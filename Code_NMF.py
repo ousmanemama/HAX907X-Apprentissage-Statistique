@@ -68,23 +68,6 @@ for k in k_values:
 best_k = min(results, key=results.get)
 print(f"\n Meilleur valeur de k = {best_k} (RMSE = {results[best_k]:.4f})")
 
-# beta_loss ='kullback-leibler' ou  beta_loss = 'itakura-saito' pour le solveur "mu"
-# Vue que pour notre cas (NMF pour système de recommandation), le meilleur choix est solver='cd', beta_loss='frobenius', c'est mieux d'éviter la comparaison entre les solveurs "cd" et "mu".
-# Comparaison NMF : variation de k et solveur ("cd" vs "mu")
-# print("\n=== Comparaison des méthodes NMF (CD vs MU) ===")
-# for k in [5, 10, 15, 20]:
-#     print(f"\n--- k = {k} ---")
-#     for solver in ["cd", "mu"]:
-#         model = NMF(
-#             n_components=k,
-#             init="nndsvda",
-#             solver=solver,
-#             random_state=42,
-#             max_iter=1000
-#         )
-#         rmse = nmf_rmse(model, X)
-#         print(f"Solver = {solver:>2} → RMSE = {rmse:.4f}")
-
 # Entraînement du meilleur modèle (
 best_nmf = NMF(n_components= best_k, init="nndsvda", solver="cd", beta_loss='frobenius',random_state=42, max_iter=300)
 W = best_nmf.fit_transform(X)
